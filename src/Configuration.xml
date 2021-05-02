@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <!--   <typeAliases> 
+        <typeAlias alias="User" type="com.cn.User"/> 
+    </typeAliases>  -->
+
+   <!--  <environments default="tx">
+    测试环境 
+        <environment id="development">
+        <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+            <property name="driver" value="com.mysql.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://127.0.0.1:3306/mybatis" />
+            <property name="username" value="root"/>
+            <property name="password" value="123"/>
+            </dataSource>
+        </environment>
+        发布的数据库环境
+         <environment id="tx">
+        <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+            <property name="driver" value="com.mysql.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://localhost:3306/mybatis1" />
+            <property name="username" value="root"/>
+            <property name="password" value="123"/>
+            </dataSource>
+        </environment>
+    </environments> -->
+    
+    <mappers>
+        <mapper resource="com/onlineshop/dao/UserMapper.xml"/>
+        <mapper resource="com/onlineshop/dao/GocardMapper.xml"/>
+        <mapper resource="com/onlineshop/dao/OrderMapper.xml"/>
+        <mapper resource="com/onlineshop/dao/ProductMapper.xml"/>
+      <mapper resource="com/onlineshop/dao/BusinessMapper.xml"/>
+    </mappers>
+</configuration>
