@@ -30,20 +30,7 @@ public class UserControl {
 		return "user/reg_user";
 	}
 	@RequestMapping("/login")
-	public String login(HttpServletRequest request,User user,HttpSession s){
-		String username=user.getUsername();
-		String pwd=user.getPwd();
-		List<User> a=userServiceimpl.list();
-		for(User u:a){
-			if(username.equals(u.getUsername())&&pwd.equals(u.getPwd())){
-				String sb="欢迎"+username+"回来";
-				s.setAttribute("user", u);
-				s.setAttribute("success", sb);
-				return "redirect:/products";
-			}
-		}
-		String sb="用户名和密码不正确";
-		request.setAttribute("sb", sb);
-		return "user/reg_user";
-	}
+	public String login(){
+      return "page/login";
+}
 }
