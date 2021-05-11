@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <div id="header" class="wrap">
 	<div id="logo"><img src="images/logo.gif" /></div>
-	<div class="help"><a href="#" class="shopping">购物车</a><a href="login.html">登录</a><a href="register.html">注册</a><a href="guestbook.html">留言</a></div>
+	<div class="help"><a href="#" class="shopping">购物车</a><a href="user/login">登录</a><a href="user/reg">注册</a><a href="user/guest">留言</a></div>
 	<div class="navbar">
 		<ul class="clearfix">
 			<li class="current"><a href="#">首页</a></li>
@@ -49,11 +49,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </div>
 <div id="position" class="wrap">
-	您现在的位置：<a href="index.html">易买网</a> &gt; 购物车
+	您现在的位置：<a href="user/index">易买网</a> &gt; 购物车
 </div>
 <div class="wrap">
 	<div id="shopping">
-		<form action="shopping-result.html">
+		<form action="page/shopping-result.jsp">
 			<table>
 				<tr>
 					<th>商品名称</th>
@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<th>操作</th>
 				</tr>
 				<tr id="product_id_1">
-					<td class="thumb"><img src="images/product/0_tiny.gif" /><a href="product-view.html">铁三角 Audio-Technica ATH-EQ300M-SV 银色 挂耳式耳机</a></td>
+					<td class="thumb"><img src="images/product/0_tiny.gif" /><a href="product/view">铁三角 Audio-Technica ATH-EQ300M-SV 银色 挂耳式耳机</a></td>
 					<td class="price" id="price_id_1">
 						<span>￥99.00</span>
 						<input type="hidden" value="99" />

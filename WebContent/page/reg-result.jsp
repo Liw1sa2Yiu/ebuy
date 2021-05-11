@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <div id="header" class="wrap">
 	<div id="logo"><img src="images/logo.gif" /></div>
-	<div class="help"><a href="#" class="shopping">购物车</a><a href="login.html">登录</a><a href="register.html">注册</a><a href="guestbook.html">留言</a></div>
+	<div class="help"><a href="#" class="shopping">购物车</a><a href="user/login">登录</a><a href="user/reg">注册</a><a href="user/guest">留言</a></div>
 	<div class="navbar">
 		<ul class="clearfix">
 			<li class="current"><a href="#">首页</a></li>
@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<p>恭喜：注册成功！</p>
 				<p>正在进入首页...</p>
 				<script type="text/javascript">
-					setTimeout("location.href='index.html'", 3000);
+					setTimeout("location.href='page/index.jsp'", 3000);
 				</script>
 			</div>
 		</div>

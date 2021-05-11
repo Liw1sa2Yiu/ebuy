@@ -9,21 +9,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
  <base href="<%=basePath%>">
 <title>后台管理 - 易买网</title>
-<link type="text/css" rel="stylesheet" href="../css/style.css" />
-<script type="text/javascript" src="../scripts/function-manage.js"></script>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<script type="text/javascript" src="scripts/function-manage.js"></script>
 </head>
 <body>
 <div id="header" class="wrap">
-	<div id="logo"><img src="../images/logo.gif" /></div>
-	<div class="help"><a href="../index.html">返回前台页面</a></div>
+	<div id="logo"><img src="images/logo.gif" /></div>
+	<div class="help"><a href="user/index">返回前台页面</a></div>
 	<div class="navbar">
 		<ul class="clearfix">
-			<li><a href="index.html">首页</a></li>
-			<li class="current"><a href="user.html">用户</a></li>
-			<li><a href="product.html">商品</a></li>
-			<li><a href="order.html">订单</a></li>
-			<li><a href="guestbook.html">留言</a></li>
-			<li><a href="news.html">新闻</a></li>
+			<li><a href="manage/index">首页</a></li>
+			<li class="current"><a href="manage/user">用户</a></li>
+			<li><a href="manage/product">商品</a></li>
+			<li><a href="manage/order">订单</a></li>
+			<li><a href="manage/guest">留言</a></li>
+			<li><a href="manage/news">新闻</a></li>
 		</ul>
 	</div>
 </div>
@@ -33,30 +33,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </div>
 <div id="position" class="wrap">
-	您现在的位置：<a href="index.html">易买网</a> &gt; 管理后台
+	您现在的位置：<a href="manage/index">易买网</a> &gt; 管理后台
 </div>
 <div id="main" class="wrap">
 	<div id="menu-mng" class="lefter">
 		<div class="box">
 			<dl>
 				<dt>用户管理</dt>
-				<dd><em><a href="user-add.html">新增</a></em><a href="user.html">用户管理</a></dd>
+				<dd><em><a href="manage/useradd">新增</a></em><a href="manage/user">用户管理</a></dd>
 				<dt>商品信息</dt>
 				<dd><em><a href="productClass-add.html">新增</a></em><a href="productClass.html">分类管理</a></dd>
-				<dd><em><a href="product-add.html">新增</a></em><a href="product.html">商品管理</a></dd>
+				<dd><em><a href="manage/productadd">新增</a></em><a href="manage/product">商品管理</a></dd>
 				<dt>订单管理</dt>
-				<dd><a href="order.html">订单管理</a></dd>
+				<dd><a href="manage/order">订单管理</a></dd>
 				<dt>留言管理</dt>
-				<dd><a href="guestbook.html">留言管理</a></dd>
+				<dd><a href="manage/guest">留言管理</a></dd>
 				<dt>新闻管理</dt>
-				<dd><em><a href="news-add.html">新增</a></em><a href="news.html">新闻管理</a></dd>
+				<dd><em><a href="manage/newsadd">新增</a></em><a href="manage/news">新闻管理</a></dd>
 			</dl>
 		</div>
 	</div>
 	<div class="main">
 		<h2>修改用户</h2>
 		<div class="manage">
-			<form action="manage-result.html">
+			<form action="manage/usermdf">
 				<table class="form">
 					<tr>
 						<td class="field">用户名：</td>

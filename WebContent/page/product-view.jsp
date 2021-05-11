@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <div id="header" class="wrap">
 	<div id="logo"><img src="images/logo.gif" /></div>
-	<div class="help"><a href="#" class="shopping">购物车</a><a href="login.html">登录</a><a href="register.html">注册</a><a href="guestbook.html">留言</a></div>
+	<div class="help"><a href="#" class="shopping">购物车</a><a href="user/login">登录</a><a href="user/reg">注册</a><a href="user/guest">留言</a></div>
 	<div class="navbar">
 		<ul class="clearfix">
 			<li class="current"><a href="#">首页</a></li>
@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </div>
 <div id="position" class="wrap">
-	您现在的位置：<a href="index.html">易买网</a> &gt; <a href="product-list.html">图书音像</a> &gt; 图书
+	您现在的位置：<a href="user/index">易买网</a> &gt; <a href="product/list>图书音像</a> &gt; 图书
 </div>
 <div id="main" class="wrap">
 	<div class="lefter">
@@ -57,23 +57,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<h2>商品分类</h2>
 			<dl>
 				<dt>图书音像</dt>
-				<dd><a href="product-list.html">图书</a></dd>
-				<dd><a href="product-list.html">音乐</a></dd>
+				<dd><a href="product/list>图书</a></dd>
+				<dd><a href="product/list>音乐</a></dd>
 				<dt>百货</dt>
-				<dd><a href="product-list.html">运动健康</a></dd>
-				<dd><a href="product-list.html">服装</a></dd>
-				<dd><a href="product-list.html">家居</a></dd>
-				<dd><a href="product-list.html">美妆</a></dd>
-				<dd><a href="product-list.html">母婴</a></dd>
-				<dd><a href="product-list.html">食品</a></dd>
-				<dd><a href="product-list.html">手机数码</a></dd>
-				<dd><a href="product-list.html">家具首饰</a></dd>
-				<dd><a href="product-list.html">手表饰品</a></dd>
-				<dd><a href="product-list.html">鞋包</a></dd>
-				<dd><a href="product-list.html">家电</a></dd>
-				<dd><a href="product-list.html">电脑办公</a></dd>
-				<dd><a href="product-list.html">玩具文具</a></dd>
-				<dd><a href="product-list.html">汽车用品</a></dd>
+				<dd><a href="product/list>运动健康</a></dd>
+				<dd><a href="product/list>服装</a></dd>
+				<dd><a href="product/list>家居</a></dd>
+				<dd><a href="product/list>美妆</a></dd>
+				<dd><a href="product/list>母婴</a></dd>
+				<dd><a href="product/list>食品</a></dd>
+				<dd><a href="product/list>手机数码</a></dd>
+				<dd><a href="product/list>家具首饰</a></dd>
+				<dd><a href="product/list>手表饰品</a></dd>
+				<dd><a href="product/list>鞋包</a></dd>
+				<dd><a href="product/list>家电</a></dd>
+				<dd><a href="product/list>电脑办公</a></dd>
+				<dd><a href="product/list>玩具文具</a></dd>
+				<dd><a href="product/list>汽车用品</a></dd>
 			</dl>
 		</div>
 	</div>
