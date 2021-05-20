@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ebuy.dao.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.ebuy.model.Order">
+    <id column="o_id" jdbcType="INTEGER" property="oId" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="p_id" jdbcType="INTEGER" property="pId" />
+    <result column="o_status" jdbcType="VARCHAR" property="oStatus" />
+    <result column="o_date" jdbcType="VARCHAR" property="oDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    o_id, u_id, p_id, o_status, o_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_order
+    where o_id = #{oId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_order
+    where o_id = #{oId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ebuy.model.Order">
+    insert into t_order (o_id, u_id, p_id, 
+      o_status, o_date)
+    values (#{oId,jdbcType=INTEGER}, #{uId,jdbcType=INTEGER}, #{pId,jdbcType=INTEGER}, 
+      #{oStatus,jdbcType=VARCHAR}, #{oDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ebuy.model.Order">
+    insert into t_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oId != null">
+        o_id,
+      </if>
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="pId != null">
+        p_id,
+      </if>
+      <if test="oStatus != null">
+        o_status,
+      </if>
+      <if test="oDate != null">
+        o_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oId != null">
+        #{oId,jdbcType=INTEGER},
+      </if>
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="pId != null">
+        #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="oStatus != null">
+        #{oStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="oDate != null">
+        #{oDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ebuy.model.Order">
+    update t_order
+    <set>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="pId != null">
+        p_id = #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="oStatus != null">
+        o_status = #{oStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="oDate != null">
+        o_date = #{oDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where o_id = #{oId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ebuy.model.Order">
+    update t_order
+    set u_id = #{uId,jdbcType=INTEGER},
+      p_id = #{pId,jdbcType=INTEGER},
+      o_status = #{oStatus,jdbcType=VARCHAR},
+      o_date = #{oDate,jdbcType=VARCHAR}
+    where o_id = #{oId,jdbcType=INTEGER}
+  </update>
+</mapper>

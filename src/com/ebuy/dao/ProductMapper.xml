@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ebuy.dao.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.ebuy.model.Product">
+    <id column="p_id" jdbcType="INTEGER" property="pId" />
+    <result column="p_name" jdbcType="VARCHAR" property="pName" />
+    <result column="p_type" jdbcType="VARCHAR" property="pType" />
+    <result column="p_photo" jdbcType="VARCHAR" property="pPhoto" />
+    <result column="p_price" jdbcType="DOUBLE" property="pPrice" />
+    <result column="p_brand" jdbcType="VARCHAR" property="pBrand" />
+    <result column="p_inventory" jdbcType="INTEGER" property="pInventory" />
+    <result column="p_barcode" jdbcType="VARCHAR" property="pBarcode" />
+    <result column="srd_id" jdbcType="INTEGER" property="srdId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    p_id, p_name, p_type, p_photo, p_price, p_brand, p_inventory, p_barcode, srd_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_product
+    where p_id = #{pId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_product
+    where p_id = #{pId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ebuy.model.Product">
+    insert into t_product (p_id, p_name, p_type, 
+      p_photo, p_price, p_brand, 
+      p_inventory, p_barcode, srd_id
+      )
+    values (#{pId,jdbcType=INTEGER}, #{pName,jdbcType=VARCHAR}, #{pType,jdbcType=VARCHAR}, 
+      #{pPhoto,jdbcType=VARCHAR}, #{pPrice,jdbcType=DOUBLE}, #{pBrand,jdbcType=VARCHAR}, 
+      #{pInventory,jdbcType=INTEGER}, #{pBarcode,jdbcType=VARCHAR}, #{srdId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ebuy.model.Product">
+    insert into t_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pId != null">
+        p_id,
+      </if>
+      <if test="pName != null">
+        p_name,
+      </if>
+      <if test="pType != null">
+        p_type,
+      </if>
+      <if test="pPhoto != null">
+        p_photo,
+      </if>
+      <if test="pPrice != null">
+        p_price,
+      </if>
+      <if test="pBrand != null">
+        p_brand,
+      </if>
+      <if test="pInventory != null">
+        p_inventory,
+      </if>
+      <if test="pBarcode != null">
+        p_barcode,
+      </if>
+      <if test="srdId != null">
+        srd_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pId != null">
+        #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="pName != null">
+        #{pName,jdbcType=VARCHAR},
+      </if>
+      <if test="pType != null">
+        #{pType,jdbcType=VARCHAR},
+      </if>
+      <if test="pPhoto != null">
+        #{pPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="pPrice != null">
+        #{pPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="pBrand != null">
+        #{pBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="pInventory != null">
+        #{pInventory,jdbcType=INTEGER},
+      </if>
+      <if test="pBarcode != null">
+        #{pBarcode,jdbcType=VARCHAR},
+      </if>
+      <if test="srdId != null">
+        #{srdId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ebuy.model.Product">
+    update t_product
+    <set>
+      <if test="pName != null">
+        p_name = #{pName,jdbcType=VARCHAR},
+      </if>
+      <if test="pType != null">
+        p_type = #{pType,jdbcType=VARCHAR},
+      </if>
+      <if test="pPhoto != null">
+        p_photo = #{pPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="pPrice != null">
+        p_price = #{pPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="pBrand != null">
+        p_brand = #{pBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="pInventory != null">
+        p_inventory = #{pInventory,jdbcType=INTEGER},
+      </if>
+      <if test="pBarcode != null">
+        p_barcode = #{pBarcode,jdbcType=VARCHAR},
+      </if>
+      <if test="srdId != null">
+        srd_id = #{srdId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where p_id = #{pId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ebuy.model.Product">
+    update t_product
+    set p_name = #{pName,jdbcType=VARCHAR},
+      p_type = #{pType,jdbcType=VARCHAR},
+      p_photo = #{pPhoto,jdbcType=VARCHAR},
+      p_price = #{pPrice,jdbcType=DOUBLE},
+      p_brand = #{pBrand,jdbcType=VARCHAR},
+      p_inventory = #{pInventory,jdbcType=INTEGER},
+      p_barcode = #{pBarcode,jdbcType=VARCHAR},
+      srd_id = #{srdId,jdbcType=INTEGER}
+    where p_id = #{pId,jdbcType=INTEGER}
+  </update>
+</mapper>

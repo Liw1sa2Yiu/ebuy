@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ebuy.dao.NoticeMapper">
+  <resultMap id="BaseResultMap" type="com.ebuy.model.Notice">
+    <id column="nt_id" jdbcType="INTEGER" property="ntId" />
+    <result column="nt_title" jdbcType="VARCHAR" property="ntTitle" />
+    <result column="nt_content" jdbcType="VARCHAR" property="ntContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    nt_id, nt_title, nt_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_notice
+    where nt_id = #{ntId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_notice
+    where nt_id = #{ntId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ebuy.model.Notice">
+    insert into t_notice (nt_id, nt_title, nt_content
+      )
+    values (#{ntId,jdbcType=INTEGER}, #{ntTitle,jdbcType=VARCHAR}, #{ntContent,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ebuy.model.Notice">
+    insert into t_notice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ntId != null">
+        nt_id,
+      </if>
+      <if test="ntTitle != null">
+        nt_title,
+      </if>
+      <if test="ntContent != null">
+        nt_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ntId != null">
+        #{ntId,jdbcType=INTEGER},
+      </if>
+      <if test="ntTitle != null">
+        #{ntTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="ntContent != null">
+        #{ntContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ebuy.model.Notice">
+    update t_notice
+    <set>
+      <if test="ntTitle != null">
+        nt_title = #{ntTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="ntContent != null">
+        nt_content = #{ntContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where nt_id = #{ntId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ebuy.model.Notice">
+    update t_notice
+    set nt_title = #{ntTitle,jdbcType=VARCHAR},
+      nt_content = #{ntContent,jdbcType=VARCHAR}
+    where nt_id = #{ntId,jdbcType=INTEGER}
+  </update>
+</mapper>

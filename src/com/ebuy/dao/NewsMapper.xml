@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ebuy.dao.NewsMapper">
+  <resultMap id="BaseResultMap" type="com.ebuy.model.News">
+    <id column="n_id" jdbcType="INTEGER" property="nId" />
+    <result column="n_title" jdbcType="VARCHAR" property="nTitle" />
+    <result column="n_content" jdbcType="VARCHAR" property="nContent" />
+    <result column="n_author" jdbcType="VARCHAR" property="nAuthor" />
+    <result column="n_date" jdbcType="VARCHAR" property="nDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    n_id, n_title, n_content, n_author, n_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_news
+    where n_id = #{nId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_news
+    where n_id = #{nId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ebuy.model.News">
+    insert into t_news (n_id, n_title, n_content, 
+      n_author, n_date)
+    values (#{nId,jdbcType=INTEGER}, #{nTitle,jdbcType=VARCHAR}, #{nContent,jdbcType=VARCHAR}, 
+      #{nAuthor,jdbcType=VARCHAR}, #{nDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ebuy.model.News">
+    insert into t_news
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nId != null">
+        n_id,
+      </if>
+      <if test="nTitle != null">
+        n_title,
+      </if>
+      <if test="nContent != null">
+        n_content,
+      </if>
+      <if test="nAuthor != null">
+        n_author,
+      </if>
+      <if test="nDate != null">
+        n_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nId != null">
+        #{nId,jdbcType=INTEGER},
+      </if>
+      <if test="nTitle != null">
+        #{nTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="nContent != null">
+        #{nContent,jdbcType=VARCHAR},
+      </if>
+      <if test="nAuthor != null">
+        #{nAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="nDate != null">
+        #{nDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ebuy.model.News">
+    update t_news
+    <set>
+      <if test="nTitle != null">
+        n_title = #{nTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="nContent != null">
+        n_content = #{nContent,jdbcType=VARCHAR},
+      </if>
+      <if test="nAuthor != null">
+        n_author = #{nAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="nDate != null">
+        n_date = #{nDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where n_id = #{nId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ebuy.model.News">
+    update t_news
+    set n_title = #{nTitle,jdbcType=VARCHAR},
+      n_content = #{nContent,jdbcType=VARCHAR},
+      n_author = #{nAuthor,jdbcType=VARCHAR},
+      n_date = #{nDate,jdbcType=VARCHAR}
+    where n_id = #{nId,jdbcType=INTEGER}
+  </update>
+</mapper>

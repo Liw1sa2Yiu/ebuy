@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ebuy.dao.MessageMapper">
+  <resultMap id="BaseResultMap" type="com.ebuy.model.Message">
+    <id column="m_id" jdbcType="INTEGER" property="mId" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="l_content" jdbcType="VARCHAR" property="lContent" />
+    <result column="l_status" jdbcType="VARCHAR" property="lStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    m_id, u_id, l_content, l_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_message
+    where m_id = #{mId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_message
+    where m_id = #{mId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ebuy.model.Message">
+    insert into t_message (m_id, u_id, l_content, 
+      l_status)
+    values (#{mId,jdbcType=INTEGER}, #{uId,jdbcType=INTEGER}, #{lContent,jdbcType=VARCHAR}, 
+      #{lStatus,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ebuy.model.Message">
+    insert into t_message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mId != null">
+        m_id,
+      </if>
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="lContent != null">
+        l_content,
+      </if>
+      <if test="lStatus != null">
+        l_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mId != null">
+        #{mId,jdbcType=INTEGER},
+      </if>
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="lContent != null">
+        #{lContent,jdbcType=VARCHAR},
+      </if>
+      <if test="lStatus != null">
+        #{lStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ebuy.model.Message">
+    update t_message
+    <set>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="lContent != null">
+        l_content = #{lContent,jdbcType=VARCHAR},
+      </if>
+      <if test="lStatus != null">
+        l_status = #{lStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where m_id = #{mId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ebuy.model.Message">
+    update t_message
+    set u_id = #{uId,jdbcType=INTEGER},
+      l_content = #{lContent,jdbcType=VARCHAR},
+      l_status = #{lStatus,jdbcType=VARCHAR}
+    where m_id = #{mId,jdbcType=INTEGER}
+  </update>
+</mapper>

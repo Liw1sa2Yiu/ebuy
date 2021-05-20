@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ebuy.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.ebuy.model.User">
+    <id column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="u_username" jdbcType="VARCHAR" property="uUsername" />
+    <result column="u_nickname" jdbcType="VARCHAR" property="uNickname" />
+    <result column="u_password" jdbcType="VARCHAR" property="uPassword" />
+    <result column="u_gender" jdbcType="VARCHAR" property="uGender" />
+    <result column="u_birth" jdbcType="VARCHAR" property="uBirth" />
+    <result column="u_email" jdbcType="VARCHAR" property="uEmail" />
+    <result column="u_phonenum" jdbcType="INTEGER" property="uPhonenum" />
+    <result column="u_address" jdbcType="VARCHAR" property="uAddress" />
+    <result column="u_headphoto" jdbcType="VARCHAR" property="uHeadphoto" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    u_id, u_username, u_nickname, u_password, u_gender, u_birth, u_email, u_phonenum, 
+    u_address, u_headphoto
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where u_id = #{uId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_user
+    where u_id = #{uId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ebuy.model.User">
+    insert into t_user (u_id, u_username, u_nickname, 
+      u_password, u_gender, u_birth, 
+      u_email, u_phonenum, u_address, 
+      u_headphoto)
+    values (#{uId,jdbcType=INTEGER}, #{uUsername,jdbcType=VARCHAR}, #{uNickname,jdbcType=VARCHAR}, 
+      #{uPassword,jdbcType=VARCHAR}, #{uGender,jdbcType=VARCHAR}, #{uBirth,jdbcType=VARCHAR}, 
+      #{uEmail,jdbcType=VARCHAR}, #{uPhonenum,jdbcType=INTEGER}, #{uAddress,jdbcType=VARCHAR}, 
+      #{uHeadphoto,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ebuy.model.User">
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="uUsername != null">
+        u_username,
+      </if>
+      <if test="uNickname != null">
+        u_nickname,
+      </if>
+      <if test="uPassword != null">
+        u_password,
+      </if>
+      <if test="uGender != null">
+        u_gender,
+      </if>
+      <if test="uBirth != null">
+        u_birth,
+      </if>
+      <if test="uEmail != null">
+        u_email,
+      </if>
+      <if test="uPhonenum != null">
+        u_phonenum,
+      </if>
+      <if test="uAddress != null">
+        u_address,
+      </if>
+      <if test="uHeadphoto != null">
+        u_headphoto,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="uUsername != null">
+        #{uUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="uNickname != null">
+        #{uNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null">
+        #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uGender != null">
+        #{uGender,jdbcType=VARCHAR},
+      </if>
+      <if test="uBirth != null">
+        #{uBirth,jdbcType=VARCHAR},
+      </if>
+      <if test="uEmail != null">
+        #{uEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="uPhonenum != null">
+        #{uPhonenum,jdbcType=INTEGER},
+      </if>
+      <if test="uAddress != null">
+        #{uAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="uHeadphoto != null">
+        #{uHeadphoto,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ebuy.model.User">
+    update t_user
+    <set>
+      <if test="uUsername != null">
+        u_username = #{uUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="uNickname != null">
+        u_nickname = #{uNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null">
+        u_password = #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uGender != null">
+        u_gender = #{uGender,jdbcType=VARCHAR},
+      </if>
+      <if test="uBirth != null">
+        u_birth = #{uBirth,jdbcType=VARCHAR},
+      </if>
+      <if test="uEmail != null">
+        u_email = #{uEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="uPhonenum != null">
+        u_phonenum = #{uPhonenum,jdbcType=INTEGER},
+      </if>
+      <if test="uAddress != null">
+        u_address = #{uAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="uHeadphoto != null">
+        u_headphoto = #{uHeadphoto,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ebuy.model.User">
+    update t_user
+    set u_username = #{uUsername,jdbcType=VARCHAR},
+      u_nickname = #{uNickname,jdbcType=VARCHAR},
+      u_password = #{uPassword,jdbcType=VARCHAR},
+      u_gender = #{uGender,jdbcType=VARCHAR},
+      u_birth = #{uBirth,jdbcType=VARCHAR},
+      u_email = #{uEmail,jdbcType=VARCHAR},
+      u_phonenum = #{uPhonenum,jdbcType=INTEGER},
+      u_address = #{uAddress,jdbcType=VARCHAR},
+      u_headphoto = #{uHeadphoto,jdbcType=VARCHAR}
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+</mapper>

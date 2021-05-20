@@ -29,11 +29,15 @@
         </environment>
     </environments> -->
     
-   <!--   <mappers>
-        <mapper resource="com/onlineshop/dao/UserMapper.xml"/>
-        <mapper resource="com/onlineshop/dao/GocardMapper.xml"/>
-        <mapper resource="com/onlineshop/dao/OrderMapper.xml"/>
-        <mapper resource="com/onlineshop/dao/ProductMapper.xml"/>
-      <mapper resource="com/onlineshop/dao/BusinessMapper.xml"/>
-    </mappers>-->
+    <mappers>
+        <mapper resource="com/ebuy/dao/UserMapper.xml"/>
+        <mapper resource="com/ebuy/dao/MessageMapper.xml"/>
+        <mapper resource="com/ebuy/dao/OrderMapper.xml"/>
+        <mapper resource="com/ebuy/dao/ProductMapper.xml"/>
+        <mapper resource="com/ebuy/dao/PrdMapper.xml"/>
+        <mapper resource="com/ebuy/dao/SrdMapper.xml"/>
+        <mapper resource="com/ebuy/dao/NoticeMapper.xml"/>
+        <mapper resource="com/ebuy/dao/NewsMapper.xml"/>
+        <mapper resource="com/ebuy/dao/ShcarMapper.xml"/>        
+    </mappers>
 </configuration>

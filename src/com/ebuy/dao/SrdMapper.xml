@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ebuy.dao.SrdMapper">
+  <resultMap id="BaseResultMap" type="com.ebuy.model.Srd">
+    <id column="srd_id" jdbcType="INTEGER" property="srdId" />
+    <result column="srd_name" jdbcType="VARCHAR" property="srdName" />
+    <result column="prd_id" jdbcType="INTEGER" property="prdId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    srd_id, srd_name, prd_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_srd
+    where srd_id = #{srdId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_srd
+    where srd_id = #{srdId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ebuy.model.Srd">
+    insert into t_srd (srd_id, srd_name, prd_id
+      )
+    values (#{srdId,jdbcType=INTEGER}, #{srdName,jdbcType=VARCHAR}, #{prdId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ebuy.model.Srd">
+    insert into t_srd
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="srdId != null">
+        srd_id,
+      </if>
+      <if test="srdName != null">
+        srd_name,
+      </if>
+      <if test="prdId != null">
+        prd_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="srdId != null">
+        #{srdId,jdbcType=INTEGER},
+      </if>
+      <if test="srdName != null">
+        #{srdName,jdbcType=VARCHAR},
+      </if>
+      <if test="prdId != null">
+        #{prdId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ebuy.model.Srd">
+    update t_srd
+    <set>
+      <if test="srdName != null">
+        srd_name = #{srdName,jdbcType=VARCHAR},
+      </if>
+      <if test="prdId != null">
+        prd_id = #{prdId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where srd_id = #{srdId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ebuy.model.Srd">
+    update t_srd
+    set srd_name = #{srdName,jdbcType=VARCHAR},
+      prd_id = #{prdId,jdbcType=INTEGER}
+    where srd_id = #{srdId,jdbcType=INTEGER}
+  </update>
+</mapper>

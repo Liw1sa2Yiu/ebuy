@@ -1,4 +1,4 @@
-package com.onlineshop.controller;
+package com.ebuy.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
